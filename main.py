@@ -11,7 +11,7 @@ from torchvision import models
 from PIL import Image
 import cv2
 
-dlab = models.segmentation.deeplabv3_resnet101(pretrained=1).eval()
+lab1 = models.segmentation.deeplabv3_resnet101(pretrained=1).eval()
 file1=st.file_uploader("Choose a file", type =['jpg','jpeg','jfif','png'])
 img=Image.open(file1)
 st.image(img)
@@ -24,7 +24,7 @@ im = T1(new_img)
 #T = transforms.ToPILImage()
 #im_PIL = T(im)
 im_numpy = im.numpy()
-out = dlab(inp)['out']
+out = lab1(inp)['out']
 om = torch.argmax(out.squeeze(), dim=0).detach().cpu().numpy()
 
 def decode_segmap(image, nc=21):
