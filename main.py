@@ -11,7 +11,6 @@ from torchvision import models
 from PIL import Image
 import cv2
 
-@st.cache(allow_output_mutation=True)
 dlab = models.segmentation.deeplabv3_resnet101(pretrained=1).eval()
 file1=st.file_uploader("Choose a file", type =['jpg','jpeg','jfif','png'])
 img=Image.open(file1)
