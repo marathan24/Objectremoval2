@@ -25,6 +25,7 @@ im = T1(new_img)
 #T = transforms.ToPILImage()
 #im_PIL = T(im)
 im_numpy = im.numpy()
+out = dlab(inp)['out']
 om = torch.argmax(out.squeeze(), dim=0).detach().cpu().numpy()
 
 def decode_segmap(image, nc=21):
